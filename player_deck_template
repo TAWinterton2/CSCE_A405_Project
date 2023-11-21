@@ -18,7 +18,7 @@ class deck():
 
 #Player Template
 
-class Player():
+class player():
     def __init__(self):
         self.hand = []
     
