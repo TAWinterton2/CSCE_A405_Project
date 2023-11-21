@@ -1,3 +1,4 @@
+
 #Base Class Template for Card
 class Card:
     def __init__(self, cardName):
@@ -11,7 +12,6 @@ class Card:
         print(self.cardName)
     def printDescription(self):
         print(self.description)
-
 
 #Generic Card Template
 
@@ -34,17 +34,15 @@ class GenericAction(Card):
     def printPitch(self):
         print(self.pitch)
 
-        
-
 class GenericAttackAction(GenericAction):
     def __init__(self, cardName, pitch, attack, block, goAgian):
         super().__init__(cardName, pitch, block, goAgian)
         self.attack = attack
-        self.description = '"By the all-seeing eye, I spill this blood in your \n image, I sacrifice this foul beast unto you, \n that you might take- Wait. \n What are you doing? Dont- no!" - Septus'
         self.type = "Generic Action - Attack"
     def printAttack(self):
         print(self.attack)
 
+#Class card template 
 
 #Ninja Card Template
 class NinjaAttackAction(GenericAttackAction):
@@ -52,6 +50,7 @@ class NinjaAttackAction(GenericAttackAction):
         super().__init__(cardName, pitch, attack, block, goAgian)
         self.type = "Ninja Action - Attack"
 
+        
 
         
 

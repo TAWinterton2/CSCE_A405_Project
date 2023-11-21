@@ -1,0 +1,29 @@
+import random
+
+#deck Template
+class deck():
+    def __init__(self):
+        self.decklist = []
+        self.constructDeck()
+        self.drawCard()
+
+    def constructDeck(self, list):
+        self.decklist = list
+    
+    def drawCard(self):
+        return self.decklist.pop()
+    
+    def shuffle(self):
+        random.shuffle(self.decklist)
+
+#Player Template
+
+class Player():
+    def __init__(self):
+        self.hand = []
+    
+    def draw(self, deck):
+        while len(self.hand) < 4:
+            self.hand.append(deck.drawCard())
+        return self
+
