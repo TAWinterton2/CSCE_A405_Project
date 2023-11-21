@@ -1,5 +1,4 @@
-import card_template as card
-
+from card import card_template as card
 
 #Whirling Mist Blossom
 Whirling_Mist_Blossom = card.NinjaAttackAction("Whirling Mist Blossom", 1, 2, 2, True)

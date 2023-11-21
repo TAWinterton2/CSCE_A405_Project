@@ -4,17 +4,22 @@ import random
 class deck():
     def __init__(self):
         self.decklist = []
-        self.constructDeck()
-        self.drawCard()
 
     def constructDeck(self, list):
         self.decklist = list
+        return print("Deck Constructed")
     
+
     def drawCard(self):
         return self.decklist.pop()
     
     def shuffle(self):
         random.shuffle(self.decklist)
+
+    def printDeckList(self):
+        for x in len(self.decklist):
+            return self.decklist[x]
+
 
 #Player Template
 
