@@ -38,17 +38,15 @@ decklist = [Bittering_Thorns, Bittering_Thorns, Bittering_Thorns,
 
 #Create deck object and pass it deck list to construct deck
 my_deck = deck.deck()
-
-print("My Deck Created \n")
-
 my_deck.constructDeck(decklist)
-#Shuffle
-my_deck.shuffle()
+
+
 
 #Create player object
 player_1 = player.player()
 
-
+#Shuffle Deck
+my_deck.shuffle()
 
 
 player_1.draw(my_deck)
