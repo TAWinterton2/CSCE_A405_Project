@@ -12,16 +12,23 @@ class Card:
         print(self.cardName)
     def printDescription(self):
         print(self.description)
-
+      
 #Generic Card Template
 
 class GenericAction(Card):
-    def __init__(self, cardName, pitch, block, goAgian):
+    def __init__(self, cardName, pitch, cost, block, goAgian):
         super().__init__(cardName)
         self.block = block
         self.pitch = pitch 
         self.goagian = bool(goAgian)
+        self.cost = cost
         self.type = "Generic Action"
+
+    
+    def show(self):
+        return print("{} Cost:{} Pitch:{} Attack:{} Block:{}")
+
+
 
 
     # Debugging Functions
@@ -34,21 +41,32 @@ class GenericAction(Card):
     def printPitch(self):
         print(self.pitch)
 
+    
+
 class GenericAttackAction(GenericAction):
-    def __init__(self, cardName, pitch, attack, block, goAgian):
-        super().__init__(cardName, pitch, block, goAgian)
+    def __init__(self, cardName, pitch, cost, attack, block, goAgian):
+        super().__init__(cardName, pitch, cost, block, goAgian)
         self.attack = attack
         self.type = "Generic Action - Attack"
+
+    def show(self):
+        return print("{}: \n Cost:{} Pitch:{} Attack:{} Block:{}".format(self.cardName, self.cost, self.pitch, self.attack, self.block))
+
+    #Debugging Functions    
     def printAttack(self):
         print(self.attack)
-
+   
 #Class card template 
 
 #Ninja Card Template
 class NinjaAttackAction(GenericAttackAction):
-    def __init__(self, cardName, pitch, attack, block, goAgian):
-        super().__init__(cardName, pitch, attack, block, goAgian)
+    def __init__(self, cardName, pitch, cost, attack, block, goAgian):
+        super().__init__(cardName, pitch, cost, attack, block, goAgian)
         self.type = "Ninja Action - Attack"
+    
+    
+    def show(self):
+        return print("{}: \n Cost:{} Pitch:{} Attack:{} Block:{}".format(self.cardName, self.cost, self.pitch, self.attack, self.block))
 
         
 

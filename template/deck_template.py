@@ -1,4 +1,5 @@
 import random
+from card import card_template
 
 #deck Template
 class deck():
@@ -7,7 +8,7 @@ class deck():
 
     def constructDeck(self, list):
         self.decklist = list
-        return print("Deck Constructed")
+        return print("Deck Constructed!")
     
 
     def drawCard(self):
@@ -15,20 +16,13 @@ class deck():
     
     def shuffle(self):
         random.shuffle(self.decklist)
+        return print("Deck shufffled")
 
     def printDeckList(self):
         for x in len(self.decklist):
             return self.decklist[x]
-
-
-#Player Template
-
-class player():
-    def __init__(self):
-        self.hand = []
-    
-    def draw(self, deck):
-        while len(self.hand) < 4:
-            self.hand.append(deck.drawCard())
-        return self
+        
+    def show(self):
+        for x in self.decklist:
+            x.show()
 
