@@ -36,21 +36,32 @@ decklist = [Bittering_Thorns, Bittering_Thorns, Bittering_Thorns,
 
 
 
-#Create deck object and pass it deck list to construct deck
-my_deck = deck.deck()
-my_deck.constructDeck(decklist)
-
-
-
-#Create player object
+#Create player objects
 player_1 = player.player()
+player_2 = player.player()
+
+#Create deck objects and pass it deck list to construct deck
+player1_deck = deck.deck()
+player1_deck.constructDeck(decklist)
+
+player2_deck = deck.deck()
+player2_deck.constructDeck(decklist)
+
 
 #Shuffle Deck
-my_deck.shuffle()
+player1_deck.shuffle()
+player1_deck.shuffle()
+
+print("\n")
 
 
-player_1.draw(my_deck)
+player_1.draw(player1_deck)
 player_1.showHand()
+
+player_2.draw(player2_deck)
+player_2.showHand()
+
+
 
 
 
