@@ -1,6 +1,7 @@
 from card import card_database as card
 from template import deck_template as deck
 from template import player_template as player
+from gamestate import GameState
 
 
 
@@ -38,30 +39,35 @@ decklist = [Bittering_Thorns, Bittering_Thorns, Bittering_Thorns,
 
 #Create player objects
 player_1 = player.player()
-player_2 = player.player()
 
-#Create deck objects and pass it deck list to construct deck
+#Create Deck Object
 player1_deck = deck.deck()
 player1_deck.constructDeck(decklist)
-
-player2_deck = deck.deck()
-player2_deck.constructDeck(decklist)
 
 
 #Shuffle Deck
 player1_deck.shuffle()
-player1_deck.shuffle()
 
-print("\n")
-
-
+#Draw Cards
 player_1.draw(player1_deck)
 player_1.showHand()
+print('\n')
 
-player_2.draw(player2_deck)
-player_2.showHand()
+#create gamestate
+game_state = GameState(player_1)
 
 
+#Test play card state
+card_to_play = player_1.hand[0]
+
+game_state.playCard(card_to_play)
+
+# Verify game state updates
+print("Player Hand:", [card.cardName for card in player_1.hand])
+print("Pitch Zone:", [card.cardName for card in player_1.pitchzone])
+print("Resources:", player_1.resources)
+print("Played Cards:", [card.cardName for card in player_1.playedcards])
+print("Total Damage:", game_state.total_damage)
 
 
 
