@@ -58,9 +58,14 @@ game_state = GameState(player_1)
 
 
 #Test play card state
-card_to_play = player_1.hand[0]
+try:
+    card_to_play = player_1.hand[1]
+    game_state.playCard(card_to_play)
+except:
+    print("No card in index")
 
-game_state.playCard(card_to_play)
+
+
 
 # Verify game state updates
 print("Player Hand:", [card.cardName for card in player_1.hand])

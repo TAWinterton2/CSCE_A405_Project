@@ -23,16 +23,28 @@ class GameState:
             print("Card is not in current hand!")
             return False
         
+        print("Playing " + card_to_play.cardName)
         #pitch cards to generate needed resources
         try:
             resources_needed = card_to_play.cost - self.player.resources
-            if resources_needed > 0:
-                for card in self.player.hand:
-                    if card.pitch >= resources_needed:
-                        self.player.pitchzone.append(card)
-                        self.player.hand.remove(card)
-                        self.player.resources += card.pitch
+
             
+            if resources_needed > 0:
+                #find best possible card to pitch
+                best_pitch_card = None
+                for card in self.player.hand:
+                    if card.pitch >= resources_needed and card != card_to_play:
+                        if best_pitch_card is None or card.pitch > best_pitch_card:
+                            best_pitch_card = card
+                
+                #once the best pitched card is found, pitch it
+                if best_pitch_card:
+                    self.player.pitchzone.append(best_pitch_card)
+                    self.player.hand.remove(best_pitch_card)
+                    self.player.resources += best_pitch_card.pitch
+
+                
+
             #play the card 
             print("Playing Card " + card_to_play.cardName)
 
