@@ -66,13 +66,14 @@ except:
 
 
 
-
 # Verify game state updates
 print("Player Hand:", [card.cardName for card in player_1.hand])
 print("Pitch Zone:", [card.cardName for card in player_1.pitchzone])
 print("Resources:", player_1.resources)
 print("Played Cards:", [card.cardName for card in player_1.playedcards])
 print("Total Damage:", game_state.total_damage)
+
+print(game_state.isHandEmpty())
 
 
 

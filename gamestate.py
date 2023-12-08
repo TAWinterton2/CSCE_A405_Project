@@ -4,6 +4,15 @@ class GameState:
     def __init__(self, player):
         self.player = player  # The player object for the current turn
         self.total_damage = 0  # Total damage dealt this turn
+        self.resources = player.pitch
+        self.hand = []
+        
+
+    def isHandEmpty(self):
+        return len(self.player.hand) == 0
+    
+    def hasResources(self):
+        return self.player.resources > 0
 
     def calculateDamage(self, card_played):
         self.total_damage += card_played.attack
@@ -28,7 +37,6 @@ class GameState:
         try:
             resources_needed = card_to_play.cost - self.player.resources
 
-            
             if resources_needed > 0:
                 #find best possible card to pitch
                 best_pitch_card = None
