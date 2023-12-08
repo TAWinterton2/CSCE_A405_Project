@@ -2,6 +2,7 @@ from card import card_database as card
 from template import deck_template as deck
 from template import player_template as player
 from gamestate import GameState
+from minmax import maximizeDamage
 
 
 
@@ -57,23 +58,15 @@ print('\n')
 game_state = GameState(player_1)
 
 
-#Test play card state
+#Test Maximize Damage
 try:
-    card_to_play = player_1.hand[1]
-    game_state.playCard(card_to_play)
+    maximizeDamage(game_state)
 except:
-    print("No card in index")
+    print("Error tyring to set up test")
 
 
 
-# Verify game state updates
-print("Player Hand:", [card.cardName for card in player_1.hand])
-print("Pitch Zone:", [card.cardName for card in player_1.pitchzone])
-print("Resources:", player_1.resources)
-print("Played Cards:", [card.cardName for card in player_1.playedcards])
-print("Total Damage:", game_state.total_damage)
 
-print(game_state.isHandEmpty())
 
 
 
