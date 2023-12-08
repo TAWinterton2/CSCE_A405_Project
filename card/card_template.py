@@ -16,11 +16,11 @@ class Card:
 #Generic Card Template
 
 class GenericAction(Card):
-    def __init__(self, cardName, pitch, cost, block, goAgian):
+    def __init__(self, cardName, pitch, cost, block, go_again):
         super().__init__(cardName)
         self.block = block
         self.pitch = pitch 
-        self.goagian = bool(goAgian)
+        self.goagian = bool(go_again)
         self.cost = cost
         self.type = "Generic Action"
 
@@ -44,8 +44,8 @@ class GenericAction(Card):
     
 
 class GenericAttackAction(GenericAction):
-    def __init__(self, cardName, pitch, cost, attack, block, goAgian):
-        super().__init__(cardName, pitch, cost, block, goAgian)
+    def __init__(self, cardName, pitch, cost, attack, block, go_again):
+        super().__init__(cardName, pitch, cost, block, go_again)
         self.attack = attack
         self.type = "Generic Action - Attack"
 
@@ -60,8 +60,8 @@ class GenericAttackAction(GenericAction):
 
 #Ninja Card Template
 class NinjaAttackAction(GenericAttackAction):
-    def __init__(self, cardName, pitch, cost, attack, block, goAgian):
-        super().__init__(cardName, pitch, cost, attack, block, goAgian)
+    def __init__(self, cardName, pitch, cost, attack, block, go_again):
+        super().__init__(cardName, pitch, cost, attack, block, go_again)
         self.type = "Ninja Action - Attack"
     
     

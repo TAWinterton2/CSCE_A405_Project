@@ -1,23 +1,24 @@
 
-def maximizeDamage(game_state):
-
-    print("Beginning MinMax")
-
-    #Termination state
-    if game_state.isHandEmpty() or not game_state.hasResources():
-       
-        return game_state.total_damage
+def maximizeDamage(game_state, go_again=True):
 
     max_damage = 0
     best_sequence = []
 
+    print("Beginning MinMax")
+
+    #Termination state
+    if not game_state.hasPlayableCard() or not go_again:
+        return game_state.total_damage
+    
+
     for card in game_state.hand:
-        if game_state.canplayCard(card):
+        if game_state.canPlayCard(card):
             #simulate playing the card
             new_state = game_state.playCard(card)
-            damage = maximizeDamage(new_state)
+            damage, sequence = maximizeDamage(new_state, card.go_again)
 
             if damage > max_damage:
                 max_damage = damage
-                best_sequence = new_state.getPlayedCards()
+                best_sequence = sequence
+
     return max_damage, best_sequence

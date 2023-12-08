@@ -16,7 +16,7 @@ Torrent_of_Tempo = card.NinjaAttackAction("Torrent Of Tempo", 1, 1, 5, 3, True)
 Flying_Kick = card.NinjaAttackAction("Flying Kick", 1, 2, 5, 3, False)
 
 #Head Jab
-Head_Jab = card.NinjaAttackAction("Head Jab", 3, 0, 1, 2, True)
+Head_Jab = card.NinjaAttackAction("Head Jab", 3, 0, 1, 3, True)
 
 #Brutal assault
 Brutal_Assult = card.GenericAttackAction("Brutal Assult", 3, 2, 4, 3, False)
