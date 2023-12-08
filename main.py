@@ -58,13 +58,12 @@ print('\n')
 game_state = GameState(player_1)
 
 
-#Test Maximize Damage
 try:
-    maximizeDamage(game_state)
-except:
-    print("Error tyring to set up test")
-
-
+    max_damage, best_sequence = maximizeDamage(game_state)
+    print("Max Damage:", max_damage)
+    print("Best Sequence:", best_sequence)
+except Exception as e:
+    print("Error trying to set up test:", e)
 
 
 
