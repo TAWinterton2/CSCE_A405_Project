@@ -61,7 +61,9 @@ game_state = GameState(player_1)
 try:
     max_damage, best_sequence = maximizeDamage(game_state)
     print("Max Damage:", max_damage)
-    print("Best Sequence:", best_sequence)
+
+    formatted_sequence = [str(card) for card in best_sequence]
+    print("Best Sequence:", formatted_sequence)
 except Exception as e:
     print("Error trying to set up test:", e)
 

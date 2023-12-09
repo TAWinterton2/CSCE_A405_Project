@@ -8,17 +8,19 @@ def maximizeDamage(game_state, go_again=True):
 
     #Termination state
     if not game_state.hasPlayableCard() or not go_again:
-        return game_state.total_damage
+        print("No more cards can be played")
+        return game_state.total_damage, []
     
 
     for card in game_state.hand:
         if game_state.canPlayCard(card):
             #simulate playing the card
-            new_state = game_state.playCard(card)
-            damage, sequence = maximizeDamage(new_state, card.go_again)
-
+            game_state.playCard(card)
+            damage, sequence = maximizeDamage(game_state, card.go_again)
+            print(f"Considering card: {card.cardName}, Damage: {damage}, Sequence: {sequence}")
+            
             if damage > max_damage:
                 max_damage = damage
-                best_sequence = sequence
+                best_sequence = [card] + sequence
 
     return max_damage, best_sequence

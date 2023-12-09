@@ -22,7 +22,7 @@ Head_Jab = card.NinjaAttackAction("Head Jab", 3, 0, 1, 3, True)
 Brutal_Assult = card.GenericAttackAction("Brutal Assult", 3, 2, 4, 3, False)
 
 #Scar for a Scar
-Scar_for_a_Scar = card.GenericAttackAction("Scar for a Scar", 1, 0, 4, 2, False)
+Scar_for_a_Scar = card.GenericAttackAction("Scar for a Scar", 1, 0, 4, 2, True)
 
 
 

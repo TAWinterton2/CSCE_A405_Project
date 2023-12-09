@@ -73,8 +73,7 @@ class GameState:
             self.player.resources -= card_to_play.cost
 
             # Update the last_card_had_go_again flag
-            self.last_card_had_go_again = card_to_play.go_again
-
+            self.last_card_had_go_again = card_to_play.go_again 
             # Calculate damage and resolve turn
             self.calculateDamage(card_to_play)
             if self.resolveTurn(card_to_play):
